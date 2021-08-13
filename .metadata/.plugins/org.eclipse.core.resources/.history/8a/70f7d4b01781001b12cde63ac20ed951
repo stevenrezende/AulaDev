@@ -1,0 +1,28 @@
+package trata.exeception.teste;
+
+import javax.swing.JOptionPane;
+
+public class TrataException {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String frase = JOptionPane.showInputDialog("Entre com a Frase");
+		//frase = null;
+        String novaFrase = null;
+        try
+        {
+            novaFrase = frase.toUpperCase();
+        }
+        catch(Exception eee) //CAPTURA DA POSSÍVEL exceção.
+        {
+           // TRATAMENTO DA exceção
+        	JOptionPane.showMessageDialog(null,"A frase inicial está nula, para solucionar tal o problema, foi lhe atribuito um valor default.");
+             frase = "Frase vazia";
+             novaFrase = frase.toUpperCase();
+         }
+      JOptionPane.showMessageDialog(null,"Frase antiga: "+frase);
+      JOptionPane.showMessageDialog(null,"Frase nova: "+novaFrase);
+
+	}
+
+}

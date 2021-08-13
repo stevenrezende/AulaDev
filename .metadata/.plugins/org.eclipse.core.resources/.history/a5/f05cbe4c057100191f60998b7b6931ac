@@ -1,0 +1,5 @@
+package conecta.banco.dados;
+
+public class PreparaBd {
+
+}

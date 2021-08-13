@@ -1,0 +1,175 @@
+package classes.conexao;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
+
+public class TelaDeAcesso extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtUsuario;
+	private JPasswordField passSenha;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaDeAcesso frame = new TelaDeAcesso();
+					frame.setVisible(true);
+					//CODIGO INSERIDO
+				    frame.setLocationRelativeTo(null);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public TelaDeAcesso() {
+		setResizable(false);
+		setTitle("Tela de Login");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 306, 328);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblUsuario = new JLabel("USUARIO");
+		lblUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+		lblUsuario.setBounds(67, 27, 82, 34);
+		contentPane.add(lblUsuario);
+		
+		JLabel lblSenha = new JLabel("SENHA");
+		lblSenha.setFont(new Font("Arial", Font.BOLD, 16));
+		lblSenha.setBounds(67, 115, 65, 48);
+		contentPane.add(lblSenha);
+		
+		txtUsuario = new JTextField();
+		txtUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+		txtUsuario.setBounds(62, 72, 172, 34);
+		contentPane.add(txtUsuario);
+		txtUsuario.setColumns(10);
+		
+		passSenha = new JPasswordField();
+		passSenha.setFont(new Font("Arial", Font.BOLD, 11));
+		passSenha.setBounds(66, 159, 168, 34);
+		contentPane.add(passSenha);
+		
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					//cria objecto con trazendo parametros da classe conexao
+					
+					Connection con = conexao.faz_conexao();
+					//Query que será executada no banco
+					//String sql = "select * from dados_Senhas where usuario=? and senha=?";
+					String sql2 = "select * from dados_senhas ";
+					
+					/*Objeto stmt que manipulará valores retornados da query executada
+					 no banco de dados*/
+					PreparedStatement stmt  = con.prepareStatement(sql2);
+					
+					//Parametros passados dentro de stmt quando necessário
+					//stmt.setString(1, txtUsuario.getText());
+					//stmt.setString(2, new String(passSenha.getPassword()));
+																			
+					// variável rs que receberá o resultado retornado de stmt
+					ResultSet rs = stmt.executeQuery();
+					
+														
+					while(rs.next()){
+						String id = rs.getString("id");
+						String usuario = rs.getString("usuario");
+						String senha = rs.getString("senha");
+
+						//System.out.println("-------------------------------------------------\n");
+						JOptionPane.showMessageDialog(null,"Codigo: " + id + "\nNome:" +
+								" "+usuario+ "  \nEndereço: " + senha + "" );
+					 
+					}
+					 
+					if (rs.next()) {
+						JOptionPane.showMessageDialog(null,"Usuario " + txtUsuario.getText() +" encontrado");
+					}else {
+						JOptionPane.showMessageDialog(null,"Usuario " + txtUsuario.getText() +" nao existe ou a Senha está incorreta","LOGIN",JOptionPane.ERROR_MESSAGE);
+					}
+					stmt.close();
+					con.close();
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
+		btnEntrar.setFont(new Font("Arial", Font.BOLD, 16));
+		btnEntrar.setBounds(103, 204, 89, 33);
+		contentPane.add(btnEntrar);
+		
+		JButton btnCadastrar = new JButton("cadastrar");
+		btnCadastrar.setFont(new Font("Arial", Font.BOLD, 16));
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+				//cria objeto "con" trazendo parametros da classe conexao
+				
+				Connection con = conexao.faz_conexao();
+				//Query que será executada no banco
+				String sql = "insert into dados_senhas(usuario,senha)VALUES(?,?)";
+				String sql2 = "select * from dados_senhas";
+				
+				/*Objeto stmt que manipulará valores retornados da query executada
+				 no banco de dados*/
+				PreparedStatement stmt  = con.prepareStatement(sql);
+				
+				//Parametros passados dentro de stmt quando necessário
+				stmt.setString(1, txtUsuario.getText());
+				stmt.setString(2, new String(passSenha.getPassword()));
+																		
+							
+					JOptionPane.showMessageDialog(null,"Usuario " + txtUsuario.getText() +" Cadastrado");
+				stmt.execute();
+				
+				stmt.close();
+				con.close();
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			}
+		});
+		btnCadastrar.setBounds(91, 248, 117, 34);
+		contentPane.add(btnCadastrar);
+	}
+}

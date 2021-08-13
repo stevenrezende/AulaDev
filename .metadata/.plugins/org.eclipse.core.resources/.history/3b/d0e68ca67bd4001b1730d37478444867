@@ -1,0 +1,23 @@
+package correcao.atividades;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class CorrecaoAtividades {
+
+	public static void main(String[] args) {
+		System.out.println ("Olá! esse programa reberá seu nome e sua média final");
+
+	    String nome = ("Matheus") ;
+        double n1, n2, n3, n4;
+        n1 = 9;
+        n2 = 10;
+        n3 = 3;
+        n4 = 8.7;
+	    double  media;
+	    media = (n1 + n2 + n3 + n4)/4;
+
+	    System.out.println ("Olá, "+ nome +", sua média foi de " + media);
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package lacosrepeticao;
+
+public class LacosRepeticao {
+
+	public static void main(String[] args) {
+		int x =15 ;
+		while (x <18) {
+			System.out.println("Você não tem permissao para entrar");
+			x++;
+		}
+
+	}
+
+}

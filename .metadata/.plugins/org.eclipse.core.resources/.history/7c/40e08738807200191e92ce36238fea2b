@@ -1,0 +1,127 @@
+package classes.conexao;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
+
+public class TelaDeAcesso extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtUsuario;
+	private JPasswordField passSenha;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaDeAcesso frame = new TelaDeAcesso();
+					frame.setVisible(true);
+					//CODIGO INSERIDO
+				    frame.setLocationRelativeTo(null);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public TelaDeAcesso() {
+		setResizable(false);
+		setTitle("Tela de Login");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 306, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblUsuario = new JLabel("USUARIO");
+		lblUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+		lblUsuario.setBounds(67, 27, 82, 34);
+		contentPane.add(lblUsuario);
+		
+		JLabel lblSenha = new JLabel("SENHA");
+		lblSenha.setFont(new Font("Arial", Font.BOLD, 16));
+		lblSenha.setBounds(67, 115, 65, 48);
+		contentPane.add(lblSenha);
+		
+		txtUsuario = new JTextField();
+		txtUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+		txtUsuario.setBounds(62, 72, 172, 34);
+		contentPane.add(txtUsuario);
+		txtUsuario.setColumns(10);
+		
+		passSenha = new JPasswordField();
+		passSenha.setFont(new Font("Arial", Font.BOLD, 11));
+		passSenha.setBounds(66, 159, 168, 34);
+		contentPane.add(passSenha);
+		
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Connection con = conexao.faz_conexao();
+					String sql = "select * from dados_Senhas where usuario=? and senha=?";
+
+					String sql2 = "select ? from dados_Senhas ";
+					PreparedStatement stmt  = con.prepareStatement(sql);
+					PreparedStatement stmt2 = con.prepareStatement(sql2);
+					
+					stmt.setString(1, txtUsuario.getText());
+					stmt.setString(2, new String(passSenha.getPassword()));
+					
+					stmt2.setString(1, "usuario");
+					
+						
+					
+					ResultSet rs = stmt.executeQuery();
+					ResultSet rs2 = stmt2.executeQuery();
+					
+					JOptionPane.showMessageDialog(null, "USUARIOS:" + rs2.getFloat(1) );
+					
+					if (rs.next()) {
+						JOptionPane.showMessageDialog(null,"Usuario " + txtUsuario.getText() +" encontrado");
+					}else {
+						JOptionPane.showMessageDialog(null,"Usuario " + txtUsuario.getText() +" nao existe ou a Senha está incorreta","LOGIN",JOptionPane.ERROR_MESSAGE);
+					}
+					stmt.close();
+					con.close();
+					stmt2.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
+		btnEntrar.setFont(new Font("Arial", Font.BOLD, 16));
+		btnEntrar.setBounds(95, 204, 89, 33);
+		contentPane.add(btnEntrar);
+	}
+}

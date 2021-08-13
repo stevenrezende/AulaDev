@@ -1,0 +1,16 @@
+package exemplo6;
+public class Exemplo6{public static void main (String arg[ ] ){
+	
+	arg [1] ="1";
+	arg [2] ="23";
+	arg [0] ="231";
+	
+	
+	
+	System.out.println( arg [0] );
+	System.out.println( arg [1] ); 
+	System.out.println( arg [2] );
+
+	}
+
+}

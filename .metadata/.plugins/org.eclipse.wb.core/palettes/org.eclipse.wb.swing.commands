@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<addCategory
+		id="category_1616103304011"
+		name="Custom"
+		description="Container for custom components"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="custom_1616103304010"
+		name="MenuArrowIcon"
+		description="Creates javax.swing.plaf.basic.BasicIconFactory$MenuArrowIcon component."
+		visible="true"
+		class="javax.swing.plaf.basic.BasicIconFactory$MenuArrowIcon"
+		category="category_1616103304011"/>
+	<moveEntry
+		id="org.eclipse.wb.swing.components.menu javax.swing.JMenuItem"
+		category="org.eclipse.wb.swing.components.menu"
+		nextEntry="org.eclipse.wb.swing.components.menu javax.swing.JRadioButtonMenuItem"/>
+</commands>

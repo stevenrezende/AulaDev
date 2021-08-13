@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;TrataException.java&apos; to &apos;TrataExeception/src/trata.exeception.teste&apos;&#x0D;&#x0A;- Original project: &apos;TrataExeception&apos;&#x0D;&#x0A;- Destination element: &apos;TrataExeception/src/trata.exeception.teste&apos;&#x0D;&#x0A;- Original element: &apos;TrataException.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;trata.exeception.teste" element1="/src&lt;{TrataException.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1555020766999" units="1" version="1.0"/>
+</session>

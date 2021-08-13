@@ -1,0 +1,10 @@
+package matriz.diagonal;
+
+public class MatrizDiagonal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

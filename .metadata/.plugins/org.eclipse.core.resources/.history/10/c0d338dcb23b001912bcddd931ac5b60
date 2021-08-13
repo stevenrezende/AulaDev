@@ -1,0 +1,31 @@
+package matriz.diagonal;
+
+public class MatrizDiagonal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int matriz[][] = new int[10][10];
+		
+		for (int coluna = 0;coluna < 10; coluna++)
+		{
+			for (int linha = 0;linha < 10; linha++) {
+				if (linha == coluna) {
+					matriz[linha][coluna] = 5;
+				}else {
+					matriz[linha][coluna] = 0;
+				}
+			}
+		}
+		for (int coluna = 0;coluna < 10; coluna++)
+		{
+			System.out.println("\n");
+			for (int linha = 0;linha < 10; linha++) {
+				System.out.println(" " + matriz[linha][coluna]);
+				
+			}
+			
+			}
+		
+	}
+
+}

@@ -1,0 +1,41 @@
+package menus.matrizes.estrutura.repeticao;
+
+import javax.swing.JOptionPane;
+
+public class CarregaMatriz {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String Menu = ("ENTRE COM A OPÇAO \n"
+				+ "1 - Cadastrar \n"
+				+ "2 - Mostrar Dados \n"
+				+ "3 - Excluir Dados \n"
+				+ "4 - SAIR");
+		String Cad[][] =  new String[5][5];
+		int Op;
+		do {
+			Op = Integer.parseInt(JOptionPane.showInputDialog(Menu));
+			switch (Op){
+			case 1:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 1  CADASTRAR DADOS");
+				break;
+			case 2:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 2  MOSTRAR DADOS");
+				break;
+			case 3:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 3  EXCLUIR DADOS");
+				break;
+			case 4:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 4  SAIR DO PROGRAMA");
+				break;
+			default:
+				JOptionPane.showMessageDialog(null,"Escolha uma OPACAO VALIDA",2);
+				break;
+			}
+		}while(Op != 4);
+		
+		
+
+	}
+
+}

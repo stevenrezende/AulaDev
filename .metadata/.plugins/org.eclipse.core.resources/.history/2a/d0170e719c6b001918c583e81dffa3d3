@@ -1,0 +1,10 @@
+package jframe.janela;
+
+public class ChamaEvento {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

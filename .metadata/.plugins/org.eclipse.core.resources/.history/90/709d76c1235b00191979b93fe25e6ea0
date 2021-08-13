@@ -1,0 +1,15 @@
+package restaurante.calorias;
+import javax.swing.JOptionPane;
+public class restaurante {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JOptionPane.showInputDialog( "Entre com seu prato preferido \n"
+				+ "1 - Vegetariano (180 cal) \n"
+				+ "2 - Peixe (230 cal) \n"
+				+ "3 - Frango 250 cal\n"
+				+ "4 - Carne (350 cal) \n");
+
+	}
+
+}

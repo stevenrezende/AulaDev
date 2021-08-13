@@ -1,0 +1,17 @@
+package looping2;
+
+public class Looping2 {
+
+	public static void main(String[] args) {
+		int i = 1;  
+		do {
+			System.out.println( "Dentro do laço." );  
+			i = i + 1;
+gfgffgfhfghfg		}while (i < 5);
+		
+
+
+
+	}
+
+}

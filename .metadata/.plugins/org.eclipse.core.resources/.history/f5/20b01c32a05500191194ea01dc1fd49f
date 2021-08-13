@@ -1,0 +1,10 @@
+package converte.tipo.variavel;
+
+public class ConverteVariavel {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

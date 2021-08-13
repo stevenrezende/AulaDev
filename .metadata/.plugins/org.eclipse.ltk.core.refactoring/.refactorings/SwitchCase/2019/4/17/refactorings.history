@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SwitcCase.java&apos; to &apos;TelaJframe/src/tela.jframe&apos;&#x0D;&#x0A;- Original project: &apos;SwitchCase&apos;&#x0D;&#x0A;- Destination element: &apos;TelaJframe/src/tela.jframe&apos;&#x0D;&#x0A;- Original element: &apos;SwitcCase.java&apos;" description="Copy compilation unit" destination="=TelaJframe/src&lt;tela.jframe" element1="/src&lt;{SwitcCase.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1556066406195" units="1" version="1.0"/>
+</session>

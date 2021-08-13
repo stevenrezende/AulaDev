@@ -1,0 +1,109 @@
+/**
+ * 
+ */
+package trabalhoavaliativo;
+
+import javax.swing.*;
+
+
+public class TrabalhoAvaliativo {
+
+	public static void CadastrarMatriz(String Cad[][], int total, int count) {
+           		
+		 
+		
+		for (int i=total; i< total + count;i++) {
+	        
+			Cad[i][0] = JOptionPane.showInputDialog("NOME");
+			Cad[i][1] = JOptionPane.showInputDialog("Endere�o");
+			Cad[i][2] = JOptionPane.showInputDialog("Telefone");
+			Cad[i][3] = JOptionPane.showInputDialog("Profiss�o");
+			Cad[i][4] = JOptionPane.showInputDialog("Idade");
+			JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso\n ");
+		
+			
+		
+		}
+		}
+	
+	
+	static void MostraValor(String Cad[][], int count) {
+		
+		for (int i=0; i< count;i++) {
+	
+		 JOptionPane.showMessageDialog(null,"Nome " + Cad[i][0]
+				 						+"\nEndereço " + Cad[i][1] 
+				 						+ "\nTelefone " + Cad[i][2]
+				 						+"\nProfissao " + Cad[i][3]
+				 						+"\nIdade " + Cad[i][4]);
+		}
+	
+	}
+		
+	static void ExcluiValor(String Cad[][] ) {
+
+		for (int i=0; i<Cad.length;i++) {
+	
+			Cad[i][0] = "";
+			Cad[i][1] = "";
+			Cad[i][2] = "";
+			Cad[i][3] = "";
+			Cad[i][4] = "";
+			}
+		JOptionPane.showMessageDialog(null,"Dados Excluidos\n ");
+	}
+	
+	
+	public static void main(String[] args) {
+		int  nome = 0, total = 0;
+		
+		
+		String Cad[][] = new String[20][5];
+		 while (nome !=4) {
+		
+		String texto = (""
+			+ "\n 1 Cadastrar "
+			+ "\n 2 Mostrar Dados "	
+			+ "\n 3 Exclui Dados "					
+			+ "\n 4 Sair "
+									);
+	
+	 nome = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu" + texto));
+	 
+		
+		
+		
+switch (nome) {
+
+	case 1: JOptionPane.showMessageDialog(null,"Cadastrar","Cadastro",1);
+	        
+			int count = Integer.parseInt(JOptionPane.showInputDialog("Quantos cadastros deseja executar"));
+			CadastrarMatriz(Cad,total, count);
+			total = total + count; 
+	 		break;
+	case 2: JOptionPane.showMessageDialog(null,"Mostrar Dados","Motrar dados",1);
+			count = Integer.parseInt(JOptionPane.showInputDialog("Quantos cadastros deseja mostrar"));
+			MostraValor(Cad,total);
+			break;
+	case 3: JOptionPane.showMessageDialog(null,"Excluir Dados","Excluir Dados",2);   
+			ExcluiValor(Cad);
+			break;
+	case 4: JOptionPane.showMessageDialog(null,"Sair","Mensagem",1);
+			break;
+	default : JOptionPane.showMessageDialog(null,"Opcao Invalida","Dados incorretos", 2);
+			break;
+		
+	
+
+
+}
+
+	
+	
+
+	}
+System.exit(0);
+
+	}
+
+}

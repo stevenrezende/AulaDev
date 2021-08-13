@@ -1,0 +1,59 @@
+package menus.matrizes.estrutura.repeticao;
+
+import javax.swing.JOptionPane;
+
+public class CarregaMatriz {
+
+public static void PreencheMatriz(){
+
+	String Cad[][] =  new String[5][5];
+	int qtdadeCad = Integer.parseInt(JOptionPane.showInputDialog("Quantos Usuários deseja Cadastrar?"));
+	for(int i=0;i<qtdadeCad;i++) {
+		Cad[i][0] = JOptionPane.showInputDialog("NOME:");
+		Cad[i][1] = JOptionPane.showInputDialog("ENDEREÇO:");
+		Cad[i][2] = JOptionPane.showInputDialog("TELEFONE:");
+		Cad[i][3]=  JOptionPane.showInputDialog("IDADE:");
+		Cad[i][4]=  JOptionPane.showInputDialog("PROFISSÃO:");
+		JOptionPane.showMessageDialog(null,"CADASTRADO COM REALIZADO:"
+				+ "\n"+ Cad[i][0]+ " cadastrado com SUCESSO","CADASTRAR",1);
+		
+	}
+	
+}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String Menu = ("ENTRE COM A OPÇAO \n"
+				+ "1 - Cadastrar \n"
+				+ "2 - Mostrar Dados \n"
+				+ "3 - Excluir Dados \n"
+				+ "4 - SAIR");
+		
+		int Op;
+		do {
+			Op = Integer.parseInt(JOptionPane.showInputDialog(Menu));
+			switch (Op){
+			case 1:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 1  CADASTRAR DADOS","MENU",1);
+				PreencheMatriz();
+				break;
+			case 2:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 2  MOSTRAR DADOS","MENU",1);
+				break;
+			case 3:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 3  EXCLUIR DADOS","MENU",1);
+				break;
+			case 4:
+				JOptionPane.showMessageDialog(null,"OPÇAO ESCOLHIDA: 4  SAIR DO PROGRAMA","MENU",1);
+				JOptionPane.showMessageDialog(null,"ATÉ LOGO","MENU",1);
+				break;
+			default:
+				JOptionPane.showMessageDialog(null,"Escolha uma OPACAO VALIDA","MENU",2);
+				break;
+			}
+		}while(Op != 4);
+		
+		
+
+	}
+
+}

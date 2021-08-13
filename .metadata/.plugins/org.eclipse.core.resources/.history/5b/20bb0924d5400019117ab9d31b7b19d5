@@ -1,0 +1,14 @@
+package menus.matrizes.estrutura.repeticao;
+import CarregaMatriz.java;
+public class PreencheMatriz {
+
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+	
+	}
+
+}

@@ -1,0 +1,25 @@
+class Exemplo15
+{
+	public static void main (String arg[])
+	{
+		int saldo, anterior, cheque, deposito ;
+	
+		anterior = Integer.parseInt(arg[0]);
+		cheque = Integer.parseInt(arg[1]);
+		deposito = Integer.parseInt(arg[2]);
+		
+		saldo = anterior - cheque + deposito ;
+		
+		if(saldo >= -2000)
+		{
+			System.out.println("O saldo final fica = "+saldo);
+		}
+		else
+		{
+			int dif = -2000 - saldo ;
+			System.out.println("Sinto muito... estourou o limite da conta ! ");
+			System.out.println("por um valor = " + dif+" Reais ");
+		}
+		
+	}
+}

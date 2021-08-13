@@ -1,0 +1,13 @@
+
+package model;
+
+import controller.Controller;
+
+public class TrabalhoNp2 {
+   
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.inicia();
+    }
+    
+}
